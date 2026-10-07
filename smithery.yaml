@@ -1,0 +1,38 @@
+name: news402-mcp
+description: Hacker News top stories, newest stories, and full-text search. Powered by HN Firebase API + Algolia. Pay 0.01 USDC per call on Base mainnet via x402 protocol.
+license: MIT
+tools:
+  - name: get_top_stories
+    description: Get the current top stories from Hacker News. Returns title, URL, score, comment count, and author.
+    inputSchema:
+      type: object
+      properties:
+        count:
+          type: number
+          description: "Number of stories to return (1-30, default 10)"
+      required: []
+  - name: get_new_stories
+    description: Get the newest stories from Hacker News. Returns title, URL, score, comment count, and author.
+    inputSchema:
+      type: object
+      properties:
+        count:
+          type: number
+          description: "Number of stories to return (1-30, default 10)"
+      required: []
+  - name: search_stories
+    description: Search Hacker News stories by keyword using Algolia full-text search.
+    inputSchema:
+      type: object
+      properties:
+        query:
+          type: string
+          description: "Search query, e.g. AI agents, open source, Python"
+        count:
+          type: number
+          description: "Number of results (1-20, default 10)"
+      required: [query]
+runtime:
+  name: node
+  transport: http
+  url: https://news402.persikos.com/mcp
