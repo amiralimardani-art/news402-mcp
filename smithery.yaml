@@ -35,4 +35,4 @@ tools:
 runtime:
   name: node
   transport: http
-  url: https://news402.persikos.com/mcp
+  url: https://news402.amir-alimardani.workers.dev/mcp
